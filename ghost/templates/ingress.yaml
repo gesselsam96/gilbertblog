@@ -15,4 +15,4 @@ spec:
       - backend:
           serviceName: blog
           servicePort: 80
-        path: /blog(/|$)(.*)
+        path: /
