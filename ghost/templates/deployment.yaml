@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
       - name: blog
-        image: ghost:2.6-alpine
+        image: ghost:3.16.1
         imagePullPolicy: Always
         ports:
         - containerPort: 2368
         env:
         - name: url
-          value: https://ghdevopstechblog.hopto.org/
+          value: http://my-blog.com
         volumeMounts:
         - mountPath: /var/lib/ghost/content
           name: content
