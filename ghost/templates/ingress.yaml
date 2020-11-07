@@ -17,7 +17,7 @@ spec:
   - host: ghdevopstechblog.hopto.org
     http:
       paths:
-      - path: /ghost
+      - path: /(ghost/){0,1}(.*)
         backend:
           serviceName: blog
-          servicePort: 80
+          servicePort: 2368
