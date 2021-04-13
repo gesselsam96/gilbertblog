@@ -5,14 +5,19 @@ metadata:
   namespace: blog
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 16m
 spec:
+  tls:
+  - hosts:
+      - ghdevopstechblog.hopto.org
+    secretName: ghdevopstechblog.hopto.org
   rules:
-  - http:
+  - host: ghdevopstechblog.hopto.org
+    http:
       paths:
-      - backend:
+      - path: /
+        backend:
           serviceName: blog
-          servicePort: 2368
-        path: /
+          servicePort: 80
