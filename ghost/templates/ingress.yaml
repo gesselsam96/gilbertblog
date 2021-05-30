@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
-  namespace: blog
+  namespace: default
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/backend-protocol: HTTP
@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
   - hosts:
-      - ghdevopstechblog.hopto.org
+      - glibertblog.ddns.net
     secretName: ghdevopstechblog.hopto.org
   rules:
-  - host: ghdevopstechblog.hopto.org
+  - host: glibertblog.ddns.net
     http:
       paths:
       - path: /
