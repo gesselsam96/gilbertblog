@@ -156,7 +156,9 @@ mariadb:
   ## Disable MariaDB replication
   replication:
     enabled: false
-
+  auth:
+    password: GGGtesting
+    rootPassword: GGGtesting
   ## Create a database and a database user
   ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#creating-a-database-user-on-first-run
   ##
@@ -165,13 +167,13 @@ mariadb:
     user: bn_ghost
     ## If the password is not specified, mariadb will generates a random password
     ##
-    # password:
+    password: GGGtesting
 
   ## MariaDB admin password
   ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#setting-the-root-password-on-first-run
   ##
-  # rootUser:
-  #   password:
+    rootUser:
+      password: root
 
   ## Enable persistence using Persistent Volume Claims
   ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
