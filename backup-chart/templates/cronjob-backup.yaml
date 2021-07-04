@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: backup-postgres
+spec:
+  schedule: "30 2 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: backupserviceacc
+          containers:
+          - name: backup-postgres
+            image: bitnami/kubectl:latest
+            command: [ "/bin/sh", "-c", "kubectl exec -it ghost-mariadb-0 -- mysqldump -A -u root -p > backup.sql -n default"]
+          restartPolicy: OnFailure

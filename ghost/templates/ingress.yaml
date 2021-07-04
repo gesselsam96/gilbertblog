@@ -8,6 +8,12 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: HTTP
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: 16m
+    nginx.ingress.kubernetes.io/server-snippet:  |
+      root /opt/bitnami/nginx/html;
+      
+      location ~ /.well-known {
+            allow all;
+      }
 spec:
   tls:
   - hosts:

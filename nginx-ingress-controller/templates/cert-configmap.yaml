@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cert-configmap
+  labels:
+    app: mysql
+data:
+  295364187F1D78B6E3525AC4CDA00B8D.txt: |
+    C680F20B656E5F65E476FF1BC538A59C59A45016C8EFC7D6C58DF07287633557
+    comodoca.com
+    c88cc171a2532e4
